@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CrudDesarrollo.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card card-header">
+
+    <div class="d-grid gap-2 mx-auto">
+        <h1>Lista Usuarios</h1>
+        <ol>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Usuarios")">Usuarios</a></li>
+            <li class="breadcrumb-item active">Tabla</li>
+        </ol>
+    </div>
+
+
+    <div class="card card-body ">
+            <div class="d-grid gap-2 mx-auto">
+                <a href="@Url.Action("CrearUser", "Usuarios")" class="btn btn-success">Crear Usuario</a>
+            </div>
+       
+        <form asp-controller="Usuarios" asp-action="index" method="get">
+            <div class="input-group mb-3">
+                <input type="text" name="Buscar" class="form-control" placeholder="Buscar por nombre" style="width:40%" />
+                <button type="submit" class="btn btn-dark">Buscar</button>
+            </div>
+
+        </form>
+        <table class="table table-bordered">
+            <thead class="table table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Clave</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+        <tbody>
+            @foreach (var usuario in Model )
+            {
+                <tr>
+               
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Fecha</td>
+                    <td>@usuario.Clave</td>
+                    <td>
+                        <a asp-action="Editar" class="btn btn-warning" asp-route-id="@usuario.Id">Editar</a>
+                        <a asp-action="Detalle" class="btn btn-primary" asp-route-id="@usuario.Id">Detalle</a>
+                        <a asp-action="Eliminar" class="btn btn-danger" asp-route-id="@usuario.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>

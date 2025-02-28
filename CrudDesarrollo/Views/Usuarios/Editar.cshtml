@@ -1,0 +1,42 @@
+﻿@model CrudDesarrollo.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Usuario</h4>
+<hr />
+
+<form asp-action="Editar" method="post">
+
+    <div class="detail-item">
+        <h5>
+            <strong>ID:</strong>@Model.Id
+        </h5>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nombre" class="control-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha" class="control-label"></label>
+        <input asp-for="Fecha" class="form-control" id="datefecha" />
+        <span asp-validation-for="Fecha" class="date"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Clave" class="control-label"></label>
+        <input asp-for="Clave" class="form-control" />
+        <span asp-validation-for="Clave" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a asp-controller="Usuarios" asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+
+</form>

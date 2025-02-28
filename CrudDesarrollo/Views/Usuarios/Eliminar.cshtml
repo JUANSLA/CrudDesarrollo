@@ -1,0 +1,23 @@
+﻿@model CrudDesarrollo.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="color:red">¿Estás seguro de que deseas eliminar este usuario?</h3>
+<hr />
+
+<div class="form-group">
+    <label>Nombre: </label>
+    <p>@Model.Nombre</p>
+</div>
+
+
+<form asp-action="Eliminar" method="post">
+
+
+    <input type="hidden" asp-for="Id"/>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-controller="Usuarios" asp-action="Eliminar" class="btn btn-secondary">Volver</a>
+</form>

@@ -1,0 +1,42 @@
+﻿@model CrudDesarrollo.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="modal-header bg-dark text-white">
+            <h2>Crear Usuario</h2>
+    </div>
+        
+    <div class="card card-body">
+
+        <form asp-action="Guardar" asp-controller="Usuario" method="post">
+
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Clave" class="control-label"></label>
+                    <input asp-for="Clave" class="form-control" />
+                    <span asp-validation-for="Clave" class="text-danger"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label asp-for="Fecha" class="control-label"></label>
+                    <input asp-for="Fecha" class="form-control" id="datefecha" />
+                    <span asp-validation-for="Fecha" class="date"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+        </form>
+    </div>
+</div>

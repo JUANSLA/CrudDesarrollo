@@ -1,0 +1,32 @@
+﻿@model CrudDesarrollo.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Detalles del usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Detalles del Usuario</h1>
+
+<div class="user-details">
+    <div class="detail-item">
+        <strong>ID:</strong>@Model.Id
+    </div>
+
+    <div class="detail-item">
+        <strong>Nombre:</strong> @Model.Nombre
+    </div>
+
+    <div class="detail-item">
+        <strong>Fecha de Registro:</strong> @Model.Fecha?.ToString("dd/MM/yyyy")
+    </div>
+
+    <div class="detail-item">
+        <strong>Clave:</strong> @Model.Clave
+    </div>
+</div>
+
+<div class="actions">
+    <a href="@Url.Action("Editar", "Usuarios", new { id = Model.Id })" class="btn btn-primary">Editar</a>
+    <a href="@Url.Action("Index", "Usuarios")" class="btn btn-secondary">Volver</a>
+</div>
